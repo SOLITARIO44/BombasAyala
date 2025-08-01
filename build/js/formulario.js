@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const formulario = document.getElementById('formularioContacto');
     
     // URL de tu Google Apps Script
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxi7Y3JQYsH6GrBmMhj3mAcZIZBeUx7fycHSKbA86wPBYWHcXsZ9MNXX4zXdufSRkQLRA/exec';
+    const GOOGLE_SCRIPT_URL = ' ';
 
     
     formulario.addEventListener('submit', function(e) {
