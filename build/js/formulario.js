@@ -26,10 +26,19 @@ document.addEventListener('DOMContentLoaded', function() {
         // Mostrar mensaje de procesamiento
         mostrarMensaje('Enviando tu consulta...', 'info');
         
-        // Enviar datos a Google Sheets - SIN CONTENT-TYPE
+        // CAMBIO AQUÍ: Convertir FormData a URLSearchParams para e.parameter
+        const params = new URLSearchParams();
+        for (let [key, value] of formData.entries()) {
+            params.append(key, value);
+        }
+        
+        // Enviar datos a Google Sheets
         fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
-            body: formData  // Enviar FormData directamente
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: params.toString()
         })
         .then(response => response.json())
         .then(data => {
@@ -227,5 +236,3 @@ const estilosMensajes = `
 
 // Agregar estilos al documento
 document.head.insertAdjacentHTML('beforeend', estilosMensajes);
-
-
